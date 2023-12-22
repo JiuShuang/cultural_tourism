@@ -1,0 +1,86 @@
+import Router from 'vue-router'
+import Vue from 'vue'
+Vue.use(Router)
+const router=new Router({
+    mode:'history',
+    routes:[
+        {
+            path:'/',
+            name:'LoginPage',
+            component:()=>import('../components/LoginPage/LoginPage'),
+        },
+        {
+            path:'/TourismManage',
+            name:'TourismManage',
+            component:()=>import('../components/TourismManage'),
+            children:[
+                {
+                    path:'/TourismManager/UserManage',
+                    name:'UserManage',
+                    meta:{
+                        requireAuth:true
+                    },
+                    component:()=>import('../components/UserManage/UserManage')
+                },
+                {
+                    path:'/TourismManager/GoodsManage',
+                    name:'GoodsManage',
+                    meta:{
+                        requireAuth:true
+                    },
+                    component:()=>import('../components/GoodsManage/GoodsManage')
+                },
+                {
+                    path:'/TourismManager/HeritageManage',
+                    name:'HeritageManage',
+                    meta:{
+                        requireAuth:true
+                    },
+                    component:()=>import('../components/HeritageManage/HeritageManage')
+                },
+                {
+                    path:'/TourismManager/OrdersManage',
+                    name:'OrdersManage',
+                    meta:{
+                        requireAuth:true
+                    },
+                    component:()=>import('../components/OrdersManage/OrdersManage')
+                },
+                {
+                    path:'/TourismManager/HotelManage',
+                    name:'HotelManage',
+                    meta:{
+                        requireAuth:true
+                    },
+                    component:()=>import('../components/HotelManage/HotelManage')
+                },
+                {
+                    path:'/TourismManager/TheaterManage',
+                    name:'TheaterManage',
+                    meta:{
+                        requireAuth:true
+                    },
+                    component:()=>import('../components/TheaterManage/TheaterManage')
+                },
+                {
+                    path:'/TourismManager/SceneryManage',
+                    name:'SceneryManage',
+                    meta:{
+                        requireAuth:true
+                    },
+                    component:()=>import('../components/SceneryManage/SceneryManage')
+                },
+                {
+                    path:'/TourismManager/MuseumManage',
+                    name:'MuseumManage',
+                    meta:{
+                        requireAuth:true
+                    },
+                    component:()=>import('../components/MuseumManage/MuseumManage')
+                },
+            ]
+        }
+    ]
+})
+
+export default  router
